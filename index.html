@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tic-Tac-Toe</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="ui.js"></script>
+    <script src="net.js"></script>
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+</head>
+<body onLoad="init();">
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <canvas id="mainCanvas"></canvas>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p id="loadingTxt" class="text-center">Searching for available player...</p>
+
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Enter your name" id="nameTxt">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button" id="joinBtn">Join Game</button>
+                                </span>
+                    </div>
+                    <ul class="list-group">
+                        <li id="playerX" class="list-group-item list-group-item-danger">[X] waiting...</li>
+                        <li id="playerO" class="list-group-item list-group-item-danger">[O] waiting...</li>
+                    </ul>
+                    <button class="btn btn-block btn-danger" type="button" id="leaveBtn">Leave Game</button>
+                </div>
+            </div>
+
+            <div id="messagePanel" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Conversation</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea id="logPanel" class="form-control" rows="10" disabled="disabled"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Type your message..." id="messageTxt">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" id="sendBtn">Send</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
